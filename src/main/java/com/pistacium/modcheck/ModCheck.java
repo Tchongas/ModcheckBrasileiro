@@ -32,7 +32,6 @@ public class ModCheck {
 
     public static final ArrayList<ModData> AVAILABLE_MODS = new ArrayList<>();
 
-
     public static void main(String[] args) {
         THREAD_EXECUTOR.submit(() -> {
             try {
@@ -40,7 +39,8 @@ public class ModCheck {
 
                 // Get available versions
                 setStatus(ModCheckStatus.LOADING_AVAILABLE_VERSIONS);
-                JsonElement availableElement = JsonParser.parseString(Objects.requireNonNull(ModCheckUtils.getUrlRequest("https://redlime.github.io/MCSRMods/mod_versions.json")));
+                JsonElement availableElement = JsonParser.parseString(Objects.requireNonNull(
+                        ModCheckUtils.getUrlRequest("https://redlime.github.io/MCSRMods/mod_versions.json")));
                 FRAME_INSTANCE.getProgressBar().setValue(30);
                 for (JsonElement jsonElement : availableElement.getAsJsonArray()) {
                     AVAILABLE_VERSIONS.add(ModVersion.of(jsonElement.getAsString()));
@@ -48,21 +48,24 @@ public class ModCheck {
 
                 // Get mod list
                 setStatus(ModCheckStatus.LOADING_MOD_LIST);
-                JsonElement modElement = JsonParser.parseString(Objects.requireNonNull(ModCheckUtils.getUrlRequest("https://redlime.github.io/MCSRMods/meta/v3/mods.json")));
+                JsonElement modElement = JsonParser.parseString(Objects.requireNonNull(
+                        ModCheckUtils.getUrlRequest("https://tchongas.github.io/RandomPages/mods.json")));
                 FRAME_INSTANCE.getProgressBar().setValue(60);
 
                 setStatus(ModCheckStatus.LOADING_MOD_RESOURCE);
                 int count = 0, maxCount = modElement.getAsJsonArray().size();
                 for (JsonElement jsonElement : modElement.getAsJsonArray()) {
                     try {
-                        FRAME_INSTANCE.getProgressBar().setString("Loading information of "+jsonElement.getAsJsonObject().get("name"));
+                        FRAME_INSTANCE.getProgressBar()
+                                .setString("Loading information of " + jsonElement.getAsJsonObject().get("name"));
                         ModData modData = new ModData(jsonElement.getAsJsonObject());
                         AVAILABLE_MODS.add(modData);
                     } catch (Throwable e) {
                         StringWriter sw = new StringWriter();
                         PrintWriter pw = new PrintWriter(sw);
                         e.printStackTrace(pw);
-                        System.out.println("Failed to init " + jsonElement.getAsJsonObject().get("name").getAsString() + "!\r\n" + sw);
+                        System.out.println("Failed to init " + jsonElement.getAsJsonObject().get("name").getAsString()
+                                + "!\r\n" + sw);
                     } finally {
                         FRAME_INSTANCE.getProgressBar().setValue((int) (60 + (((++count * 1f) / maxCount) * 40)));
                     }
@@ -86,7 +89,8 @@ public class ModCheck {
                 System.exit(0);
             }
         });
-        //System.out.println(new Gson().toJson(ModCheckUtils.getFabricJsonFileInJar(new File("D:/MultiMC/instances/1.16-1/.minecraft/mods/SpeedRunIGT-10.0+1.16.1.jar"))));
+        // System.out.println(new Gson().toJson(ModCheckUtils.getFabricJsonFileInJar(new
+        // File("D:/MultiMC/instances/1.16-1/.minecraft/mods/SpeedRunIGT-10.0+1.16.1.jar"))));
     }
 
 }

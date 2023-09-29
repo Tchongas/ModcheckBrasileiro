@@ -282,7 +282,7 @@ public class ModCheckFrame extends JFrame {
         versionScrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
         JPanel selectButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-        JButton selectAllButton = new JButton("Marcar Todos");
+        JButton selectAllButton = new JButton("Marcar Recomendados");
         selectAllButton.addActionListener(e -> {
             for (Map.Entry<ModData, JCheckBox> entry : modCheckBoxes.entrySet()) {
                 if (!entry.getKey().getReadme().isEmpty() || entry.getKey().getIncompatibleMods().size() > 0)
@@ -295,8 +295,9 @@ public class ModCheckFrame extends JFrame {
             JOptionPane.showMessageDialog(this,
                     "<html><body>Alguns mods nao sao selecionados automaticamente por nao serem compativeis uns com os outros (Starlight e Phosphor)<br>\r\n"
                             + //
-                            "Alguns sao APENAS para a Tabela Brasileira, e nao sao aceitos no speedrun.com<br>\r\n" + //
-                            "Alguns sao por alguma outra razao que voce pode ver selecionando ele<br> esses mods voce precisa selecionar manualmente</body></html>",
+                            "Alguns sao APENAS para a Tabela Brasileira, e nao sao aceitos no speedrun.com\r\n" + //
+                            "Alguns sao por alguma outra razao que voce pode ver selecionando ele\r\n" + //
+                            " esses mods voce precisa selecionar manualmente",
                     "Cuidado!", JOptionPane.WARNING_MESSAGE);
         });
         JButton deselectAllButton = new JButton("Desmarcar todos");
@@ -322,37 +323,38 @@ public class ModCheckFrame extends JFrame {
     public void initMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu source = new JMenu("Info");
+        JMenu source = new JMenu("Mais informacoes");
 
-        JMenuItem githubSource = new JMenuItem("GitHub...");
+        JMenuItem githubSource = new JMenuItem("Ranking Brasileiro");
         githubSource.addActionListener(e -> {
             try {
-                Desktop.getDesktop().browse(new URI("https://github.com/RedLime/ModCheck"));
+                Desktop.getDesktop().browse(new URI(
+                        "https://docs.google.com/spreadsheets/d/1ovMyHrmk0J4BumPygSigTScmt7T-saKqaHrPCjSQG-Y/edit?usp=sharing"));
             } catch (Exception ignored) {
             }
         });
         source.add(githubSource);
 
-        JMenuItem donateSource = new JMenuItem("Support");
-        donateSource.addActionListener(e -> {
+        JMenuItem discordSource = new JMenuItem("Discord Brasileiro");
+        discordSource.addActionListener(e -> {
             try {
-                Desktop.getDesktop().browse(new URI("https://ko-fi.com/redlimerl"));
+                Desktop.getDesktop().browse(new URI("https://discord.gg/wshxtk64Jj"));
             } catch (Exception ignored) {
             }
         });
-        source.add(donateSource);
+        source.add(discordSource);
 
-        JMenuItem checkChangeLogSource = new JMenuItem("Changelog");
+        JMenuItem checkChangeLogSource = new JMenuItem("Outros Recursos");
         checkChangeLogSource.addActionListener(e -> {
             try {
                 Desktop.getDesktop().browse(new URI(
-                        "https://github.com/RedLime/ModCheck/releases/tag/" + ModCheckConstants.APPLICATION_VERSION));
+                        "https://www.minecraftspeedrunning.com/public-resources"));
             } catch (Exception ignored) {
             }
         });
         source.add(checkChangeLogSource);
 
-        JMenuItem updateCheckSource = new JMenuItem("Check for updates");
+        JMenuItem updateCheckSource = new JMenuItem("Versao original");
         updateCheckSource.addActionListener(e -> {
             try {
                 JsonObject jsonObject = JsonParser
