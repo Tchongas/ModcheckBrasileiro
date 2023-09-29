@@ -1,8 +1,7 @@
 # ModCheck
-![ModCheck](https://cdn.7tv.app/emote/60eefb20119bd109472f7f4b/4x)
 
-Minecraft SpeedRun Mods Auto Installer/Updater
+App para facilitar o dowload de mods para speedrun, deixando todos no mesmo lugar
 
-original idea by [pistacium](https://github.com/pistacium/ModCheck)
+Versao original (Em ingles): https://github.com/RedLime/ModCheck
 
-![image](https://user-images.githubusercontent.com/25276450/172102912-455735a5-558f-4330-84c6-fad5bf9aa92b.png)
+![image](https://media.discordapp.net/attachments/808344484181835828/1156965117670457344/image.png)
