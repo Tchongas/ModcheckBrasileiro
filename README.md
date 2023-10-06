@@ -2,7 +2,7 @@
 
 App para facilitar o download de mods para speedrun, deixando todos no mesmo lugar<br>
 
-Mostra todos os mods que podem ser usados no Speedrun.com e alguns que podem ser usados na Tabela Brasileira<br>
+Mostra todos os mods que podem ser usados no Speedrun.com e alguns que só podem ser usados na Tabela Brasileira<br>
 
 Novos mods são adicionados a lista automaticamente, sem necessidade de precisar vir aqui novamente<br>
 
