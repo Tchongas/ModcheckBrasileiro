@@ -6,6 +6,8 @@ Mostra todos os mods que podem ser usados no Speedrun.com e alguns que só podem
 
 Novos mods são adicionados a lista automaticamente, sem necessidade de precisar vir aqui novamente<br>
 
+Baixe aqui: https://github.com/Tchongas/ModcheckBrasileiro/releases/tag/release <br>
+
 
 Versão original (Em inglês): https://github.com/RedLime/ModCheck
 
