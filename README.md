@@ -1,10 +1,10 @@
 # ModCheck Brasileiro
 
-App para facilitar o download de mods para speedrun, deixando todos no mesmo lugar
+App para facilitar o download de mods para speedrun, deixando todos no mesmo lugar<br>
 
-Mostra todos os mods que podem ser usados no Speedrun.com e alguns que podem ser usados na Tabela Brasileira
+Mostra todos os mods que podem ser usados no Speedrun.com e alguns que podem ser usados na Tabela Brasileira<br>
 
-Novos mods são adicionados a lista automaticamente, sem necessidade de precisar vir aqui novamente
+Novos mods são adicionados a lista automaticamente, sem necessidade de precisar vir aqui novamente<br>
 
 
 Versão original (Em inglês): https://github.com/RedLime/ModCheck
